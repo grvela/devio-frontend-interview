@@ -1,0 +1,11 @@
+<div class="container">
+    <header>
+        <h1>Produtos</h1>
+        <p>Selecione um produto para adicionar ao seu pedido</p>
+    </header>
+    <div class="item-list">
+        <div class="item" *ngFor="let item of products">
+            <app-product></app-product>
+        </div>
+    </div>
+</div>
