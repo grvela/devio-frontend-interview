@@ -3,18 +3,21 @@ import { NgModule } from "@angular/core";
 
 import { CardModule } from 'primeng/card';
 
-import { ProductComponent } from "@components/product/product.component";
+import { GridProductComponent } from '@components/grid-product/grid-product.component';
+import { ProductComponent } from '@components/product/product.component';
 
 @NgModule({
     declarations:[
-        ProductComponent
+        ProductComponent,
+        GridProductComponent
     ], 
     imports: [
         CommonModule,
         CardModule
     ],
     exports: [
-        ProductComponent
+        ProductComponent,
+        GridProductComponent
     ]
 })
 export class ComponentsModule {}

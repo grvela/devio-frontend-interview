@@ -1,10 +1,9 @@
 :host ::ng-deep{
     .p-card{
-        background-color: #125C13;
         overflow: hidden;
         text-align: center;
         position: relative;
-
+        border-radius: 12px;
     }
 
     .p-card-header{
@@ -16,16 +15,23 @@
         background-image: url("../../../assets/doodle.svg");
         background-size: cover;
 
-        opacity: 0.2;
-        filter: invert(100%);
+        opacity: 0.5;
     }
 
-    .p-card-title{
+    .p-card-content{   
         background-color: white;
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
-        
+    }
 
+    .image{
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, -20%);
+    }
+
+    .title{
         font-family: 'Nunito Sans', sans-serif;
         font-weight: 800;
         font-size: 16px;
@@ -34,29 +40,16 @@
         padding-top: 38px;
     }
 
-    .p-card-subtitle{
-        background-color: white;
+    .subtitle{
         font-size: 10px;
         padding-bottom: 20px;
     }
 
-    .p-card-content{
-        position: absolute;
-
-        top: 20%;
-        left: 50%;
-        transform: translate(-50%, -20%);
-    }
-
-
-    .p-card-footer{
-        background-color: white;
-
+    .value{
         font-family: 'Nunito Sans', sans-serif;
         font-weight: 800;
         font-size: 14px;
 
         padding-bottom: 20px;
     }
-
 }

@@ -1,20 +1,22 @@
-<p-card>
+<p-card [style]="{ 'background-color': backgroundColor }">
     <ng-template pTemplate="header">
     </ng-template>
-
-    <ng-template  pTemplate="title">
-        Smash da casa
-    </ng-template>
-
-    <ng-template pTemplate="subtitle">
-        2x hambúrguer 200g
-    </ng-template>
-    
     <ng-template pTemplate="content">
-        <img alt="hambúrguer" src="../../../assets/hambuguer.png" width="85px">
-    </ng-template>
+        <div class="image">
+            <img alt="hambúrguer" src="../../../assets/hambuguer.png" width="85px">
+        </div>
 
-    <ng-template pTemplate="footer">
-       R$30,50
+        <div class="title">
+            Smash da casa
+        </div>
+
+        <div class="subtitle">
+            2x hambúrguer 200g
+        </div>
+
+        <div class="value">
+            R$30,50
+        </div>
+
     </ng-template>
 </p-card>
