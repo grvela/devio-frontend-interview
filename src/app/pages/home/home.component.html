@@ -1,26 +1,41 @@
 <div class="container">
 
-    <div>
-        <h1 class="welcome">Seja bem vindo!</h1>
-        <input class="search" type="text" pInputText placeholder="O que você procura?"  [style]="{ 'background-color': '#F4F4F4' }"/>
+    <div class="header">
+        <h1>Seja bem vindo!</h1>
+        <input pInputText class="search" type="text" placeholder="O que você procura?"/>
     </div>
     
     <div class="categories">
-        <h1 class="title">Categorias</h1>
-        <p class="subtitle">Navegue por categoria</p>
-        <div class="list-categories">
-            <ng-container *ngFor="let category of categories">
-                <app-category></app-category>
+        <h2>Categorias</h2>
+        <p>Navegue por categoria</p>
+        <div class="item-list list-categories">
+            <ng-container  *ngFor="let category of categories">
+                <app-category class="item" [category]="category"></app-category>
             </ng-container>
         </div>
     </div>
 
     <div class="products">
-        <h1 class="title">Produtos</h1>
-        <p class="subtitle">Selecione um produto para adicionar ao seu pedido</p>
-        <div class="list-products">
-            <app-grid-product class="list-" [items]="products"></app-grid-product>
+        <h2>Produtos</h2>
+        <p>Selecione um produto para adicionar ao seu pedido</p>
+        <div class="item-list list-products">
+            <ng-container  *ngFor="let product of products; let i = index">
+                <app-product class="item" [index]="i" [product]="product"></app-product>
+            </ng-container>
         </div>
     </div>
   
 </div>
+
+<!-- p default 16px -->
+
+<!-- h1: 20px -->
+<!-- search size: 12px -->
+<!-- title 12px -->
+<!-- subtitle 10px -->
+
+<!-- title category 12px -->
+
+<!-- title product 10px -->
+<!-- subtitle product 8px -->
+<!-- value product 10px -->

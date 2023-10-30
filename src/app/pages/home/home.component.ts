@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Category } from '@interfaces/category/category';
 import { Product } from '@interfaces/product/product';
+import { CategoriesService } from '@services/categories/categories.service';
 import { ProductsService } from '@services/products/products.service';
 
 
@@ -13,8 +14,9 @@ export class HomeComponent{
   products: Product[] = [];
   categories: Category[] = []
 
-  constructor(private productsService: ProductsService){
+  constructor(private productsService: ProductsService, private categoriesService: CategoriesService){
     this.getAllProducts();
+    this.getAllCategories();
   }
 
   getAllProducts (){
@@ -22,4 +24,12 @@ export class HomeComponent{
       this.products = products;
     });
   }
+
+  getAllCategories(){
+    this.categoriesService.getAll().subscribe((categories: Category[]) => {
+      this.categories = categories;
+    });
+  }
+
+  
 }

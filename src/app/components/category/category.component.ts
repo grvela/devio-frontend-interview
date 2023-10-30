@@ -7,9 +7,5 @@ import { Category } from '@interfaces/category/category';
   styleUrls: ['./category.component.scss']
 })
 export class CategoryComponent {
-  @Input() category: Category = {} as Category;
-
-  ngOnChanges(){
-  }
-
+  @Input({required: true}) category: Category = {} as Category;
 }

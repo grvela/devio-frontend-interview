@@ -7,6 +7,12 @@ import { Product } from '@interfaces/product/product';
   styleUrls: ['./product.component.scss']
 })
 export class ProductComponent {
-  @Input() backgroundColor = '';
   @Input({required: true}) product: Product = {} as Product; 
+  @Input({required: true}) index = 0;
+
+  colors: string[] = ['#FA6767', '#125C13', '#FFEB70'];
+
+  getBackgroundColor(): string {
+    return this.colors[Math.floor(this.index / 4) % this.colors.length];
+  }
 }

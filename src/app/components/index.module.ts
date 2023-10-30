@@ -3,14 +3,12 @@ import { NgModule } from "@angular/core";
 
 import { CardModule } from 'primeng/card';
 
-import { GridProductComponent } from '@components/grid-product/grid-product.component';
 import { ProductComponent } from '@components/product/product.component';
 import { CategoryComponent } from './category/category.component';
 
 @NgModule({
     declarations:[
         ProductComponent,
-        GridProductComponent,
         CategoryComponent
     ], 
     imports: [
@@ -19,7 +17,6 @@ import { CategoryComponent } from './category/category.component';
     ],
     exports: [
         ProductComponent,
-        GridProductComponent,
         CategoryComponent
     ]
 })

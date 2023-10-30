@@ -1,11 +1,12 @@
-<p-card [style]="{ 'background-color': backgroundColor }">
-    <ng-template pTemplate="header">
-    </ng-template>
-    <ng-template pTemplate="content">
-        <div class="image">
-            <img alt="hambúrguer" [src]="product.image" width="85px" height="75px">
-        </div>
+<div class="card" [ngStyle]="{'background-color': getBackgroundColor()}">
+    <div class="header">
+    </div>
 
+    <div class="image">
+        <img alt="logo" [src]="product.image" width="65px" >
+    </div>
+
+    <div class="content">
         <div class="title">
             {{product.title}}
         </div>
@@ -15,8 +16,7 @@
         </div>
 
         <div class="value">
-            {{product.value | currency:'BRL'}}
+            {{product.value | currency: 'BRL'}}
         </div>
-
-    </ng-template>
-</p-card>
+    </div>
+</div>
