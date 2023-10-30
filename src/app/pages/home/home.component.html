@@ -1,4 +1,14 @@
 <div class="container">
+    <div>
+        <h1>Categorias</h1>
+        <p>Navegue por categoria</p>
+        <div class="categories">
+            <ng-container *ngFor="let category of categories">
+                <app-category></app-category>
+            </ng-container>
+        </div>
+    </div>
+
     <header>
         <h1>Produtos</h1>
         <p>Selecione um produto para adicionar ao seu pedido</p>

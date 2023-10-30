@@ -3,3 +3,11 @@
     margin-left: 17%;
     margin-right: 17%;
 }
+
+.categories{
+    border: 1px solid red;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    column-gap: 80px;
+    row-gap: 60px;
+}

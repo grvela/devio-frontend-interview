@@ -5,11 +5,13 @@ import { CardModule } from 'primeng/card';
 
 import { GridProductComponent } from '@components/grid-product/grid-product.component';
 import { ProductComponent } from '@components/product/product.component';
+import { CategoryComponent } from './category/category.component';
 
 @NgModule({
     declarations:[
         ProductComponent,
-        GridProductComponent
+        GridProductComponent,
+        CategoryComponent
     ], 
     imports: [
         CommonModule,
@@ -17,7 +19,8 @@ import { ProductComponent } from '@components/product/product.component';
     ],
     exports: [
         ProductComponent,
-        GridProductComponent
+        GridProductComponent,
+        CategoryComponent
     ]
 })
 export class ComponentsModule {}

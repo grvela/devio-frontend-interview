@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Category } from '@interfaces/category/category';
 import { Product } from '@interfaces/product/product';
 
 @Component({
@@ -81,4 +82,22 @@ export class HomeComponent {
       image: "../../../../assets/hambuguer.png"
     },
   ];
+
+  categories: Category[] = [
+    {
+      name: "Combos",
+      image: "../../../../assets/hambuguer.png"
+    },
+     {
+      name: "Acompanhamentos",
+      image: "../../../../assets/hambuguer.png"
+    },
+     {
+      name: "Bebidas",
+      image: "../../../../assets/hambuguer.png"
+    }, {
+      name: "Sobremesas",
+      image: "../../../../assets/hambuguer.png"
+    }
+  ]
 }
