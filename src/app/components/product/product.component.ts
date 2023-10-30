@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Product } from '@interfaces/product/product';
 
 @Component({
   selector: 'app-product',
@@ -7,4 +8,5 @@ import { Component, Input } from '@angular/core';
 })
 export class ProductComponent {
   @Input() backgroundColor = '';
+  @Input({required: true}) product: Product = {} as Product; 
 }

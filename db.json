@@ -1,0 +1,18 @@
+{
+    "categories": [
+        {
+            "id": 1,
+            "name": "Combos",
+            "image": "/assets/hamburguer.png"
+        }
+    ],
+    "products": [
+        {
+            "id": 1,
+            "title": "Smash da casa",
+            "description": "2x hambúrguer 200g",
+            "value": 30.50,
+            "image": "/assets/hamburguer.png"
+        }
+    ]
+}

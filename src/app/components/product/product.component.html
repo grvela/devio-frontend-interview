@@ -7,15 +7,15 @@
         </div>
 
         <div class="title">
-            Smash da casa
+            {{product.title}}
         </div>
 
         <div class="subtitle">
-            2x hambúrguer 200g
+            {{product.description}}
         </div>
 
         <div class="value">
-            R$30,50
+            {{product.value | currency:'BRL'}}
         </div>
 
     </ng-template>

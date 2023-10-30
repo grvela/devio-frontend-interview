@@ -1,13 +1,47 @@
 .container{
-    border: 1px solid blue;
     margin-left: 17%;
     margin-right: 17%;
 }
 
+
+.welcome{
+    font-weight: 700;
+    font-size: 32px;
+}
+
+.search{
+    margin-top: 10px;
+    padding: 5px 112px 5px 14px;
+    border: none;
+    border-radius: 4px;
+}
+
 .categories{
-    border: 1px solid red;
+    margin-top: 52px;
+}
+
+.title{
+    font-size: 18px;
+}
+
+.subtitle{
+    font-size: 14px;
+}
+
+.list-categories{
+    margin-top: 28px;
+    margin-bottom: 52px;
     display: grid;
     grid-template-columns: repeat(4, 1fr); 
     column-gap: 80px;
     row-gap: 60px;
 }
+
+.products{
+    margin-top: 52px;
+}
+
+.list-products{
+    margin-top: 28px;
+}
+

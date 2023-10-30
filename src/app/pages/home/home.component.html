@@ -1,17 +1,26 @@
 <div class="container">
+
     <div>
-        <h1>Categorias</h1>
-        <p>Navegue por categoria</p>
-        <div class="categories">
+        <h1 class="welcome">Seja bem vindo!</h1>
+        <input class="search" type="text" pInputText placeholder="O que você procura?"  [style]="{ 'background-color': '#F4F4F4' }"/>
+    </div>
+    
+    <div class="categories">
+        <h1 class="title">Categorias</h1>
+        <p class="subtitle">Navegue por categoria</p>
+        <div class="list-categories">
             <ng-container *ngFor="let category of categories">
                 <app-category></app-category>
             </ng-container>
         </div>
     </div>
 
-    <header>
-        <h1>Produtos</h1>
-        <p>Selecione um produto para adicionar ao seu pedido</p>
-    </header>
-    <app-grid-product [items]="products"></app-grid-product>
+    <div class="products">
+        <h1 class="title">Produtos</h1>
+        <p class="subtitle">Selecione um produto para adicionar ao seu pedido</p>
+        <div class="list-products">
+            <app-grid-product class="list-" [items]="products"></app-grid-product>
+        </div>
+    </div>
+  
 </div>

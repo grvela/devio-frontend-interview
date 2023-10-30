@@ -1,5 +1,5 @@
 <div class="item-list">
     <div class="item" *ngFor="let item of items; let i = index">
-        <app-product [backgroundColor]="getBackgroundColor(i)"></app-product>
+        <app-product [backgroundColor]="getBackgroundColor(i)" [product]="item"></app-product>
     </div>
 </div>
