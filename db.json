@@ -24,6 +24,8 @@
     "products": [
         {
             "id": 1,
+            "code": 11,
+            "tag": "hambuguer",
             "title": "x-bacon",
             "description": "3x bacon, 2x cheddar, 1x picanha 200g, 4x tomate",
             "value": 30.50,
@@ -31,6 +33,8 @@
         },
         {
             "id": 2,
+            "code": 22,
+            "tag": "hambuguer",
             "title": "x-vontade",
             "description": "1x bacon, 1x cebola, 1x hambúrguer 100g",
             "value": 25.70,
@@ -38,6 +42,8 @@
         },
          {
             "id": 3,
+            "code": 46,
+            "tag": "hambuguer",
             "title": "Smash do chefe",
             "description": "3x cebola crua, 1x queijo prata, 1x hambúrguer 100g",
             "value": 18.70,
@@ -45,6 +51,8 @@
         },
         {
             "id": 4,
+            "code": 12,
+            "tag": "hambuguer",
             "title": "x-cheddar",
             "description": "5x cheddar, 2x hambúrguer 100g",
             "value": 46.20,
@@ -52,6 +60,8 @@
         },
          {
             "id": 5,
+            "code": 22,
+            "tag": "hambuguer",
             "title": "x-desejo",
             "description": "1x hambúrguer 100g, 1x alface",
             "value": 10,
@@ -59,6 +69,8 @@
         },
          {
             "id": 6,
+            "code": 14,
+            "tag": "hambuguer",
             "title": "x-caboquinho",
             "description": "5x tucumã, 1x hambúrguer 100g, 1x queijo",
             "value": 15.00,
@@ -66,6 +78,8 @@
         },
           {
             "id": 7,
+            "code": 2381273,
+            "tag": "hambuguer",
             "title": "x-ignorância",
             "description": "2x tomate, 3x hambúrguer 200g, 3x queijo cheddar",
             "value": 32.00,
@@ -73,6 +87,8 @@
         },
          {
             "id": 8,
+            "code": 44,
+            "tag": "burguer",
             "title": "x-cebola",
             "description": "7x cebola, 1x hambúrguer 100g, 1x alho",
             "value": 28.21,
@@ -80,6 +96,8 @@
         },
          {
             "id": 9,
+            "code": 123,
+            "tag": "hambuguer",
             "title": "x-salada",
             "description": "1x salada, 1x tomate, 1x hambúrguer 100g",
             "value": 8,
@@ -87,6 +105,8 @@
         },
          {
             "id": 10,
+            "code": 11,
+            "tag": "hambuguer",
             "title": "x-criança",
             "description": "1x hambúrguer 100g",
             "value": 10,
@@ -94,6 +114,8 @@
          },
           {
             "id": 11,
+            "code": 23,
+            "tag": "hambuguer",
             "title": "x-ovo",
             "description": "1x ovo, 1x hambúrguer 200g",
             "value": 12,
@@ -101,6 +123,8 @@
         },
          {
             "id": 12,
+            "code": 11,
+            "tag": "hambuguer",
             "title": "triple cheddar",
             "description": "5x queijo cheddar,3x hambúrguer 100g",
             "value": 46,
@@ -108,6 +132,8 @@
         },
         {
             "id": 13,
+            "code": 234,
+            "tag": "burguer",
             "title": "x-povão",
             "description": "1x tomate, 1x alface, 1x presunto, 1x hambúrguer 100g",
             "value": 5,

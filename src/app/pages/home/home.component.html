@@ -2,7 +2,7 @@
 
     <div class="header">
         <h1>Seja bem vindo!</h1>
-        <input pInputText class="search" type="text" placeholder="O que você procura?"/>
+        <input pInputText class="search" type="text" placeholder="O que você procura?" [(ngModel)]="searchTerm" (input)="filterProducts()"/>
     </div>
     
     <div class="categories">
@@ -19,7 +19,7 @@
         <h2>Produtos</h2>
         <p>Selecione um produto para adicionar ao seu pedido</p>
         <div class="item-list list-products">
-            <ng-container  *ngFor="let product of products; let i = index">
+            <ng-container  *ngFor="let product of filteredProducts; let i = index">
                 <app-product class="item" [index]="i" [product]="product"></app-product>
             </ng-container>
         </div>
