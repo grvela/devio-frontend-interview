@@ -1,4 +1,4 @@
-<div class="card" [ngStyle]="{'background-color': getBackgroundColor()}">
+<button class="card" (click)="onClick()" [ngStyle]="{'background-color': getBackgroundColor()}">
     <div class="header">
     </div>
 
@@ -12,11 +12,11 @@
         </div>
 
         <div class="subtitle">
-            {{product.description}}
+            {{product.short_description}}
         </div>
 
         <div class="value">
             {{product.value | currency: 'BRL'}}
         </div>
     </div>
-</div>
+</button>

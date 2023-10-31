@@ -1,0 +1,50 @@
+.input-number {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 98px;
+}
+
+.circle-button {
+  width: 32px;
+  height: 32px;
+
+   position: absolute;
+
+  border: 1px solid #125c13;
+  background-color: #125c13;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.circle-button i {
+  color: white;
+  font-size: 14px;
+}
+
+.left{
+    left: 0;
+}
+
+.right{
+    right: 0;
+}
+
+input[type="number"] {
+  width: 100%;
+  border: 1px solid #125c13;
+  text-align: center;
+  padding: 6px;
+  outline: none;
+  border-radius: 16px;
+
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

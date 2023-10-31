@@ -1,0 +1,40 @@
+.container{
+    border: 1px solid red;
+    padding: 0px 25px 0px 25px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.title{
+    font-weight: 800;
+    font-size: 24px;
+    margin-bottom: 52px;
+}
+
+.product-title{
+  margin-bottom: 14px;
+}
+
+.image-product{
+  border: 1px solid green;
+}
+
+.order{
+    border: 1px solid blue;
+    display: grid;
+    grid-template-columns: 1fr; 
+}
+
+.price{
+  border: 1px solid yellow;
+  text-align: center;
+}
+
+.amount-order{
+  border: 1px solid red;
+}
+
+@media (min-width: 1024px){
+  .order{
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

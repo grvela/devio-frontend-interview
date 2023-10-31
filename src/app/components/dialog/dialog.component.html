@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="title">
+        Revise seu pedido!
+    </div>
+
+    <div class="order"> 
+        <div class="image-product">
+            <!-- <app-product [product]="product" [index]="index"></app-product> -->
+        </div>
+        <div class="amount-order">
+            <h2 class="product-title">{{product.title}}</h2>
+            <p>{{product.long_description}}</p>
+            <div class="order-input">
+               <app-input-number [(ngModel)]="amount"></app-input-number>
+            </div>
+        </div>
+
+        <div class="price">
+            {{product.value | currency: 'BRL'}}
+        </div>
+    </div>
+
+    <div class="optionals">
+        <div class="subtitle"> Adicionais</div>
+        <p>Selecione os ingredientes que mais combinam com seu lanche</p>
+    </div>
+
+    <div class="notes">
+        <div class="subtitle">
+            Observações
+        </div>
+    </div>  
+
+    <div class="total-price">
+
+    </div>
+
+    <div class="buttons"></div>
+</div>

@@ -1,0 +1,5 @@
+<div class="input-number">
+  <button class="circle-button left" (click)="decrementValue()"><i class="pi pi-minus"></i></button>
+  <input type="number" [(ngModel)]="value" [min]="1" [max]="100">
+  <button class="circle-button right" (click)="incrementValue()"><i class="pi pi-plus"></i></button>
+</div>

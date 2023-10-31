@@ -3,7 +3,8 @@ export interface Product {
     code: number;
     tag: string;
     title: string;
-    description: string;
+    short_description: string;
+    long_description: string;
     value: number;
     image: string;
 }
