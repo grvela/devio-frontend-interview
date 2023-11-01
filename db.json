@@ -1,4 +1,27 @@
 {
+    "optional":[
+        {
+            "id": 1,
+            "name": "Bacon",
+            "description": "10g",
+            "value": 1,
+            "image":"https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Made20bacon.png/640px-Made20bacon.png"
+        },
+        {
+            "id": 2,
+            "name": "Cheddar",
+            "description": "10g",
+            "value": 1,
+            "image":"https://queijospresident.com.br/uploads/1568744337-queijo-cheddar-processado-president-fracao.png"
+        },
+        {
+            "id": 3,
+            "name": "Molho acompanhamento",
+            "description": "Barbacue",
+            "value": 1,
+            "image":"https://static.paodeacucar.com/img/uploads/1/70/12581070.png"
+        }
+    ],
     "categories": [
         {
             "id": 1,
