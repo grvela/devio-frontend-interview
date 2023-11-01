@@ -21,7 +21,6 @@ export class HomeComponent implements OnInit, OnDestroy{
   private productsSubscription!: Subscription;
   private categoriesSubscription!: Subscription;
 
-
   products: Product[] = [];
   categories: Category[] = [];
 
@@ -40,7 +39,7 @@ export class HomeComponent implements OnInit, OnDestroy{
 
   getAllProducts (){
     return this.products$.subscribe((products: Product[]) => {
-      this.products = products;
+      this.filteredProducts = this.products = products;
     });
   }
 
@@ -50,28 +49,17 @@ export class HomeComponent implements OnInit, OnDestroy{
     });
   }  
 
+  filterProducts() {
+    const searchValue = this.searchTerm.trim().toLowerCase();
+
+    this.filteredProducts = this.products.filter((product: Product) =>
+      product.code.toString().includes(searchValue) ||
+      product.title.toLowerCase().includes(searchValue)
+    );
+  }
+
   ngOnDestroy(){
     this.productsSubscription.unsubscribe();
     this.categoriesSubscription.unsubscribe();
-  }
-
-
-  filterProducts() {
-    if (this.searchTerm.trim() === '') {
-      this.filteredProducts = this.products;
-    } else {
-
-      const searchValue = this.searchTerm.trim();
-      
-      if (!isNaN(Number(searchValue))) {
-        this.filteredProducts = this.products.filter((product: Product) =>
-          product.code.toString().includes(searchValue)
-        );
-      } else {
-        this.filteredProducts = this.products.filter((product: Product) =>
-          product.title.toLowerCase().includes(searchValue.toLowerCase())
-        );
-      }
-    }
   }
 }

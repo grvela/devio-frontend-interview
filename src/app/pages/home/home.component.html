@@ -23,7 +23,7 @@
         <p>Selecione um produto para adicionar ao seu pedido</p>
         <div class="item-list list-products">
             <ng-container *ngIf="products$ | async as products; else loadingTemplate">
-                <app-product *ngFor="let product of products; let i = index" [product]="product" [index]="i"></app-product>
+                <app-product *ngFor="let product of filteredProducts; let i = index" [product]="product" [index]="i"></app-product>
             </ng-container>
             <ng-template #loadingTemplate>
                 <p-skeleton></p-skeleton>
