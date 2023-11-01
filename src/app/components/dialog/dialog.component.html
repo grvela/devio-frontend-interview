@@ -5,30 +5,38 @@
 
     <div class="order"> 
         <div class="image-product">
-            <!-- <app-product [product]="product" [index]="index"></app-product> -->
+           <app-card [product]="product" [backgroundColor]="backgroundColor"></app-card>
         </div>
+        
         <div class="amount-order">
             <h2 class="product-title">{{product.title}}</h2>
-            <p>{{product.long_description}}</p>
+            <p class="long-description">{{product.long_description}}</p>
             <div class="order-input">
                <app-input-number [(ngModel)]="amount"></app-input-number>
             </div>
         </div>
 
         <div class="price">
-            {{product.value | currency: 'BRL'}}
+            <h2>{{product.value | currency: 'BRL'}}</h2>
         </div>
     </div>
 
-    <div class="optionals">
-        <div class="subtitle"> Adicionais</div>
+    <div class="optional">
+        <h2> Adicionais</h2>
         <p>Selecione os ingredientes que mais combinam com seu lanche</p>
+        <div class="list-options">
+            <ng-container class="options" *ngFor="let option of optional">
+                <app-optional [option]="option"></app-optional>
+            </ng-container>
+        </div>
     </div>
 
     <div class="notes">
-        <div class="subtitle">
-            Observações
+        <h2>Observações</h2>
+        <div class="text">
+            <textarea [autoResize]="true" rows="4" id="message" name="message" placeholder="Adicione uma observação ao seu pedido" pInputTextarea></textarea>
         </div>
+       
     </div>  
 
     <div class="total-price">

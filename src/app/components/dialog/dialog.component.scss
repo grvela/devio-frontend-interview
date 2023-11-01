@@ -1,5 +1,4 @@
 .container{
-    border: 1px solid red;
     padding: 0px 25px 0px 25px;
     font-family: 'Montserrat', sans-serif;
 }
@@ -15,22 +14,59 @@
 }
 
 .image-product{
-  border: 1px solid green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .order{
-    border: 1px solid blue;
     display: grid;
     grid-template-columns: 1fr; 
 }
 
+.order-input{
+  bottom: 0;
+}
+
 .price{
-  border: 1px solid yellow;
   text-align: center;
 }
 
 .amount-order{
-  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+}
+
+.long-description{
+  flex-grow: 1;
+}
+
+.list-options{
+  margin-top: 30px;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.optional{
+  margin-top: 60px;
+}
+
+.notes{
+}
+
+:host ::ng-deep{
+  .p-inputtextarea{
+    width: 100%;
+    background-color: #F4F4F4;
+    font-size: 14px;
+    padding: 15px;
+  }
+}
+
+.text{
+  margin-top: 18px;
 }
 
 @media (min-width: 1024px){
