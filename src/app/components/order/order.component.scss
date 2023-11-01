@@ -1,0 +1,22 @@
+.order{
+    border: 1px solid #bcbcbc;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    padding: 36px;
+}
+
+.components{
+    display: flex;
+    flex-direction: row;
+}
+
+.title{
+    flex-grow: 1;
+}
+
+.total-price{
+    border-top: 1px dashed #9f9f9f;
+    margin-top: 58px;
+    padding-top: 18px;
+}

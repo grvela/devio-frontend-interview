@@ -2,6 +2,7 @@ import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 
+import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { CheckboxModule } from 'primeng/checkbox';
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
@@ -14,6 +15,7 @@ import { CardComponent } from './card/card.component';
 import { CheckboxComponent } from './checkbox/checkbox.component';
 import { InputNumberComponent } from './input-number/input-number.component';
 import { OptionalComponent } from './optional/optional.component';
+import { OrderComponent } from './order/order.component';
 
 @NgModule({
     declarations:[
@@ -23,7 +25,8 @@ import { OptionalComponent } from './optional/optional.component';
         DialogComponent,
         CardComponent,
         OptionalComponent,
-        CheckboxComponent
+        CheckboxComponent,
+        OrderComponent
     ], 
     imports: [
         CommonModule,
@@ -31,7 +34,8 @@ import { OptionalComponent } from './optional/optional.component';
         CardModule,
         DynamicDialogModule,
         CheckboxModule,
-        InputTextareaModule
+        InputTextareaModule,
+        ButtonModule
     ],
     exports: [
         ProductComponent,
