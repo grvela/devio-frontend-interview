@@ -16,9 +16,7 @@ export class ProductComponent {
 
   ref: DynamicDialogRef | undefined;
 
-  constructor(private dialogService: DialogService){
-
-  }
+  constructor(private dialogService: DialogService){}
 
   getBackgroundColor(): string {
     return this.colors[Math.floor(this.index / 4) % this.colors.length];
@@ -27,7 +25,8 @@ export class ProductComponent {
   onClick(){
     this.dialogService.open(DialogComponent, {
       data: {
-        id: this.product.id
+        id: this.product.id,
+        color: this.getBackgroundColor()
       },
       width: '60%',
       contentStyle: { overflow: 'auto' },
