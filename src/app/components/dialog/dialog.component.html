@@ -12,7 +12,7 @@
             <h2 class="product-title">{{product.title}}</h2>
             <p class="long-description">{{product.long_description}}</p>
             <div class="order-input">
-               <app-input-number [(ngModel)]="amount"></app-input-number>
+               <app-input-number (valueChange)="onAmountOrderChange($event)"></app-input-number>
             </div>
         </div>
 
@@ -26,7 +26,7 @@
         <p>Selecione os ingredientes que mais combinam com seu lanche</p>
         <div class="list-options">
             <ng-container class="options" *ngFor="let option of optional">
-                <app-optional [option]="option"></app-optional>
+                <app-optional [option]="option" (optionRequest)="onOptionRequest($event)"></app-optional>
             </ng-container>
         </div>
     </div>
@@ -34,13 +34,17 @@
     <div class="notes">
         <h2>Observações</h2>
         <div class="text">
-            <textarea [autoResize]="true" rows="4" id="message" name="message" placeholder="Adicione uma observação ao seu pedido" pInputTextarea></textarea>
+            <textarea [(ngModel)]="notes" [autoResize]="true" rows="4" id="message" name="message" placeholder="Adicione uma observação ao seu pedido" pInputTextarea></textarea>
         </div>
        
     </div>  
 
-    <div class="total-price">
-        <app-order></app-order>
+    <div class="total-price" *ngIf="loadProduct">
+        <app-order 
+            [product]="product" 
+            [amount]="amount"
+            [optional]="selectedOptional"
+            ></app-order>
     </div>
 
     <div class="footer-buttons">

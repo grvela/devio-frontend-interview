@@ -12,6 +12,6 @@
         {{option.value | currency:'BRL'}}
     </div>
     <div class="checkbox">
-        <app-checkbox></app-checkbox>
+        <app-checkbox (checkedChange)="onToggleChange($event)"></app-checkbox>
     </div>
 </div>

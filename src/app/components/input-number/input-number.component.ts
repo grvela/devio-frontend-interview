@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-input-number',
@@ -6,20 +6,22 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./input-number.component.scss']
 })
 export class InputNumberComponent {
-  @Input() value = 1;
   @Output() valueChange = new EventEmitter<number>();
+  value = 1;
 
-  decrementValue() {
-    if (this.value > 1) {
-      this.value--;
-      this.valueChange.emit(this.value);
+  onChangeValue(type: string){
+    if(type === 'increment'){
+      if(this.value < 100){
+        this.value++;
+      }
     }
-  }
 
-  incrementValue() {
-    if (this.value < 100) {
-      this.value++;
-      this.valueChange.emit(this.value);
+    if(type === 'decrement'){
+      if(this.value > 1){
+        this.value--;
+      }
     }
+
+    this.valueChange.emit(this.value);
   }
 }

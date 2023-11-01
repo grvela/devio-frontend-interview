@@ -1,10 +1,18 @@
 <div class="order">
-    <div class="components">
-        <div class="title">1x smash da casa</div>
-        <div class="price">R$ 30,90</div>
+    <div class="in-order">
+        <div class="components">
+            <div class="title">{{amount}}x {{product.title}}</div>
+            <div class="price">{{totalProduct | currency: 'BRL'}}</div>
+        </div>
+
+        <div class="components" *ngFor="let option of optional">
+            <div class="title">1x {{option.name}}</div>
+            <div class="price">{{option.value | currency:'BRL'}}</div>
+        </div>
     </div>
+   
     <div class="total-price">
         <p>Total do pedido:</p>
-        <h1>R$30,90</h1>
+        <h1>{{totalOrder | currency: 'BRL'}}</h1>
     </div>
 </div>
