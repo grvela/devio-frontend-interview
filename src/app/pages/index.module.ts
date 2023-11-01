@@ -1,6 +1,7 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
+import { SkeletonModule } from 'primeng/skeleton';
 import { ToastModule } from 'primeng/toast';
 
 import { ComponentsModule } from "@components/index.module";
@@ -17,7 +18,8 @@ import { InputTextModule } from 'primeng/inputtext';
         FormsModule,
         ComponentsModule, 
         InputTextModule,
-        ToastModule
+        ToastModule,
+        SkeletonModule
     ],
     exports: [
         HomeComponent, 

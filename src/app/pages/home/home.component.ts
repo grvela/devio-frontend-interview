@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Category } from '@interfaces/category/category';
 import { Product } from '@interfaces/product/product';
 import { CategoriesService } from '@services/categories/categories.service';
 import { ProductsService } from '@services/products/products.service';
+import { Observable, Subscription } from 'rxjs';
 
 
 @Component({
@@ -10,29 +11,49 @@ import { ProductsService } from '@services/products/products.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent{
+export class HomeComponent implements OnInit, OnDestroy{
   searchTerm = '';
-  products: Product[] = [];
   filteredProducts: Product[] = [];
-  categories: Category[] = []
 
-  constructor(private productsService: ProductsService, private categoriesService: CategoriesService){
-    this.getAllProducts();
-    this.getAllCategories();
+  products$!: Observable<Product[]>;
+  categories$!: Observable<Category[]>;
+
+  private productsSubscription!: Subscription;
+  private categoriesSubscription!: Subscription;
+
+
+  products: Product[] = [];
+  categories: Category[] = [];
+
+  constructor(
+    private productsService: ProductsService, 
+    private categoriesService: CategoriesService){
+  }
+
+  ngOnInit(){
+    this.products$ = this.productsService.getAll();
+    this.categories$ = this.categoriesService.getAll();
+
+    this.productsSubscription = this.getAllProducts();
+    this.categoriesSubscription = this.getAllCategories();
   }
 
   getAllProducts (){
-    this.productsService.getAll().subscribe((products: Product[]) => {
+    return this.products$.subscribe((products: Product[]) => {
       this.products = products;
-      this.filteredProducts = this.products;
     });
   }
 
   getAllCategories(){
-    this.categoriesService.getAll().subscribe((categories: Category[]) => {
+    return this.categories$.subscribe((categories: Category[]) => {
       this.categories = categories;
     });
   }  
+
+  ngOnDestroy(){
+    this.productsSubscription.unsubscribe();
+    this.categoriesSubscription.unsubscribe();
+  }
 
 
   filterProducts() {

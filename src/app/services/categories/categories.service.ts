@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CategoriesService {
-  readonly apiUrl = environment.apiUrl + "/categories"
+  private readonly apiUrl = environment.apiUrl + "/categories"
 
   constructor(private http: HttpClient) { }
 
