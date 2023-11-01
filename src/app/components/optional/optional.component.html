@@ -1,0 +1,17 @@
+<div class="option">
+    <div class="card">
+        <p-card>
+            <img alt="image" [src]="option.image" width="54px">
+        </p-card>
+    </div>
+    <div class="option-description">
+        <h2>{{option.name}}</h2>
+        <p>{{option.description}}</p>
+    </div>
+    <div class="option-value">
+        {{option.value | currency:'BRL'}}
+    </div>
+    <div class="checkbox">
+        <app-checkbox></app-checkbox>
+    </div>
+</div>

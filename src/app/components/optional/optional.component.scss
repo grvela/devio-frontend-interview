@@ -1,0 +1,25 @@
+:host ::ng-deep{
+    .p-card{
+        padding: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.option{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.option-description{
+    flex-grow: 1;
+}
+
+.option-value{
+}
+
+.checkbox{
+}
