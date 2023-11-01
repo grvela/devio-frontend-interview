@@ -1,0 +1,5 @@
+<div class="custom-checkbox" (click)="toggleCheckbox()" role="presentation">
+  <input type="checkbox"  [(ngModel)]="isChecked">
+  <div class="outer-circle"></div>
+  <div class="inner-circle" [class.active]="isChecked"></div>
+</div>

@@ -1,0 +1,29 @@
+.custom-checkbox {
+  position: relative;
+  cursor: pointer;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+.outer-circle {
+  width: 18px;
+  height: 18px;
+  border: 1px solid #125C13;
+  border-radius: 50%;
+}
+
+.inner-circle {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.inner-circle.active {
+  background-color: #125C13;
+}
