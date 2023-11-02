@@ -4,14 +4,13 @@ import { Order } from '@interfaces/order/order.interface';
 import { Product } from '@interfaces/product/product';
 import { OptionalService } from '@services/optional/optional.service';
 import { ProductsService } from '@services/products/products.service';
-import { DynamicDialogConfig } from 'primeng/dynamicdialog';
+import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { Observable, Subscription } from 'rxjs';
-
 
 @Component({
   selector: 'app-dialog',
   templateUrl: './dialog.component.html',
-  styleUrls: ['./dialog.component.scss']
+  styleUrls: ['./dialog.component.scss'],
 })
 export class DialogComponent implements OnInit, OnDestroy{
   id = 0;
@@ -29,7 +28,8 @@ export class DialogComponent implements OnInit, OnDestroy{
   private optionalSubscription!: Subscription;
 
   constructor(
-    public config: DynamicDialogConfig, 
+    public config: DynamicDialogConfig,
+    public dialogRef: DynamicDialogRef, 
     private productService: ProductsService, 
     private optionalService: OptionalService,
     ){
@@ -66,7 +66,7 @@ export class DialogComponent implements OnInit, OnDestroy{
   }
 
   onAmountChange(value: number){
-    this.order.amount = value;
+    this.order = { ...this.order, amount: value };
   }
 
   onOptionRequest(event: {option: Optional, selected: boolean}) {
@@ -84,6 +84,9 @@ export class DialogComponent implements OnInit, OnDestroy{
     };
   }
 
+  onSubmit(){
+    this.dialogRef.close(this.order);
+  }
 
   ngOnDestroy(){
     this.productSubscription.unsubscribe();

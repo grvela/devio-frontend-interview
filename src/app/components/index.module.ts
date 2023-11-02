@@ -45,6 +45,7 @@ import { OrderComponent } from './order/order.component';
         CategoryComponent,
         InputNumberComponent,
         DialogComponent,
+        OrderComponent
     ]
 })
 export class ComponentsModule {}

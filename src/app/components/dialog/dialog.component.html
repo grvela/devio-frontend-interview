@@ -70,10 +70,10 @@
     </div>
 
     <div class="footer-buttons">
-        <p-button [outlined]="true">
+        <p-button [outlined]="true" (onClick)="onSubmit()">
             <p>Continuar adicionando</p>
         </p-button>
-        <p-button class="raised" [raised]="true">
+        <p-button class="raised" [raised]="true" (onClick)="onSubmit()">
             <p>Adicionar ao pedido</p>
         </p-button>
     </div>

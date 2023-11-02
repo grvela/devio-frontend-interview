@@ -5,7 +5,17 @@ import { Order } from '@interfaces/order/order.interface';
   providedIn: 'root'
 })
 export class OrderService {
-  order: Order = {} as Order;
+  order: Order | null = null;
 
-  constructor() { }
+  set(order: Order): void {
+    this.order = order;
+  }
+
+  get(): Order | null {
+    return this.order;
+  }
+
+  clear(): void {
+    this.order = null;
+  }
 }

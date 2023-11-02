@@ -1,7 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Category } from '@interfaces/category/category';
+import { Order } from '@interfaces/order/order.interface';
 import { Product } from '@interfaces/product/product';
 import { CategoriesService } from '@services/categories/categories.service';
+import { OrderService } from '@services/order/order.service';
 import { ProductsService } from '@services/products/products.service';
 import { Observable, Subscription } from 'rxjs';
 
@@ -15,6 +17,8 @@ export class HomeComponent implements OnInit, OnDestroy{
   searchTerm = '';
   filteredProducts: Product[] = [];
 
+  order: Order | null = null; 
+
   products$!: Observable<Product[]>;
   categories$!: Observable<Category[]>;
 
@@ -26,7 +30,9 @@ export class HomeComponent implements OnInit, OnDestroy{
 
   constructor(
     private productsService: ProductsService, 
-    private categoriesService: CategoriesService){
+    private categoriesService: CategoriesService,
+    private orderService: OrderService
+    ){
   }
 
   ngOnInit(){
@@ -35,6 +41,8 @@ export class HomeComponent implements OnInit, OnDestroy{
 
     this.productsSubscription = this.getAllProducts();
     this.categoriesSubscription = this.getAllCategories();
+
+    this.order = this.orderService.get();
   }
 
   getAllProducts (){

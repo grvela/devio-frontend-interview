@@ -1,36 +1,55 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnDestroy } from '@angular/core';
 import { Product } from '@interfaces/product/product';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 
 import { DialogComponent } from '@components/dialog/dialog.component';
+import { Order } from '@interfaces/order/order.interface';
 
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
-  styleUrls: ['./product.component.scss']
+  styleUrls: ['./product.component.scss'],
+  providers: [DialogService]
 })
-export class ProductComponent {
+export class ProductComponent implements OnDestroy{
   @Input({required: true}) product: Product = {} as Product; 
   @Input({required: true}) index = 0;
   colors: string[] = ['#FA6767', '#125C13', '#FFEB70'];
 
-  ref: DynamicDialogRef | undefined;
+  isSelected = false;
 
-  constructor(private dialogService: DialogService){}
+  ref!: DynamicDialogRef;
+
+  constructor(private dialogService: DialogService){
+  }
 
   getBackgroundColor(): string {
     return this.colors[Math.floor(this.index / 4) % this.colors.length];
   }
 
   onClick(){
-    this.dialogService.open(DialogComponent, {
+    this.isSelected = true;
+
+    this.ref = this.dialogService.open(DialogComponent, {
       data: {
         id: this.product.id,
-        color: this.getBackgroundColor()
+        color: this.getBackgroundColor(),
       },
       width: '60%',
       contentStyle: { overflow: 'auto' },
       baseZIndex: 10000,
+    });
+
+    this.ref.onClose.subscribe((order: Order) => {
+      if(order){
+        console.log(order.product.title);
+      }else{
+        this.isSelected = false;
+      }
     })
+  }
+
+  ngOnDestroy() {
+    this.ref.close();
   }
 }

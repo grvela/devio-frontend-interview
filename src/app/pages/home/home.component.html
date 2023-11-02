@@ -2,7 +2,13 @@
 <div class="container">
     <div class="header">
         <h1>Seja bem vindo!</h1>
-        <input pInputText class="search" type="text" placeholder="O que você procura?" [(ngModel)]="searchTerm" (input)="filterProducts()"/>
+        <input 
+            pInputText 
+            class="search" 
+            type="text" 
+            placeholder="O que você procura?" 
+            [(ngModel)]="searchTerm" 
+            (input)="filterProducts()"/>
     </div>
     
     <div class="categories">
@@ -10,7 +16,11 @@
         <p>Navegue por categoria</p>
         <div class="item-list list-categories">
             <ng-container *ngIf="categories$ | async as categories; else loadingCategories">
-                <app-category *ngFor="let category of categories" [category]="category" class="item"></app-category>
+                <app-category 
+                    *ngFor="let category of categories" 
+                    [category]="category" 
+                    class="item">
+                </app-category>
             </ng-container>
             <ng-template #loadingCategories>
                 <p-skeleton></p-skeleton>
@@ -23,11 +33,21 @@
         <p>Selecione um produto para adicionar ao seu pedido</p>
         <div class="item-list list-products">
             <ng-container *ngIf="products$ | async as products; else loadingProducts">
-                <app-product *ngFor="let product of filteredProducts; let i = index" [product]="product" [index]="i"></app-product>
+                <app-product 
+                    *ngFor="let product of filteredProducts; let i = index" 
+                    [product]="product" 
+                    [index]="i">
+                </app-product>
             </ng-container>
             <ng-template #loadingProducts>
                 <p-skeleton></p-skeleton>
             </ng-template>
         </div>
+    </div>
+
+    <div class="order">
+        <ng-container *ngIf="order">
+            <app-order [order]="order"></app-order>
+        </ng-container>
     </div>
 </div>
