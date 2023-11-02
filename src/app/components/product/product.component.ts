@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, Output } from '@angular/core';
 import { Product } from '@interfaces/product/product';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 
@@ -14,6 +14,7 @@ import { Order } from '@interfaces/order/order.interface';
 export class ProductComponent implements OnDestroy{
   @Input({required: true}) product: Product = {} as Product; 
   @Input({required: true}) index = 0;
+  @Output() orderRequest = new EventEmitter<Order>();
   colors: string[] = ['#FA6767', '#125C13', '#FFEB70'];
 
   isSelected = false;
@@ -42,7 +43,7 @@ export class ProductComponent implements OnDestroy{
 
     this.ref.onClose.subscribe((order: Order) => {
       if(order){
-        console.log(order.product.title);
+        this.orderRequest.emit(order);
       }else{
         this.isSelected = false;
       }

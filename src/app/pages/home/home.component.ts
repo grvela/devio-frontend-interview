@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit, OnDestroy{
   searchTerm = '';
   filteredProducts: Product[] = [];
 
-  order: Order | null = null; 
+  order: Order[] = []; 
 
   products$!: Observable<Product[]>;
   categories$!: Observable<Category[]>;
@@ -41,8 +41,6 @@ export class HomeComponent implements OnInit, OnDestroy{
 
     this.productsSubscription = this.getAllProducts();
     this.categoriesSubscription = this.getAllCategories();
-
-    this.order = this.orderService.get();
   }
 
   getAllProducts (){
@@ -64,6 +62,18 @@ export class HomeComponent implements OnInit, OnDestroy{
       product.code.toString().includes(searchValue) ||
       product.title.toLowerCase().includes(searchValue)
     );
+  }
+
+  onOrder(order: Order){
+    this.order = [...this.order, order];
+  }
+
+  onCancel(){
+    location.reload();
+  }
+
+  onSubmit(){
+    console.log("submitted");
   }
 
   ngOnDestroy(){

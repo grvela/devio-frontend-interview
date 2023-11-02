@@ -36,7 +36,9 @@
                 <app-product 
                     *ngFor="let product of filteredProducts; let i = index" 
                     [product]="product" 
-                    [index]="i">
+                    [index]="i"
+                    (orderRequest)="onOrder($event)"
+                    >
                 </app-product>
             </ng-container>
             <ng-template #loadingProducts>
@@ -46,8 +48,25 @@
     </div>
 
     <div class="order">
-        <ng-container *ngIf="order">
-            <app-order [order]="order"></app-order>
+        <ng-container *ngIf="order.length >= 1">
+            <app-list-order [listOrders]="order"></app-list-order>
         </ng-container>
+    </div>
+
+    
+    <div class="footer-buttons">
+        <p-button 
+            [outlined]="true" 
+            [disabled]="order.length === 0" 
+            (onClick)="onCancel()">
+            <p>Cancelar</p>
+        </p-button>
+        <p-button 
+            class="raised" 
+            [raised]="true" 
+            [disabled]="order.length === 0" 
+            (onClick)="onSubmit()">
+            <p>Finalizar pedido</p>
+        </p-button>
     </div>
 </div>

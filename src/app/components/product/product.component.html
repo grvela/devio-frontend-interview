@@ -1,6 +1,6 @@
 <button 
     class="card" 
-    (click)="onClick()" 
+    (click)="isSelected? null : onClick()" 
     [ngStyle]="{'background-color': getBackgroundColor()}">
     <div class="selected" 
         *ngIf="isSelected"

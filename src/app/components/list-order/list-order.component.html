@@ -1,0 +1,18 @@
+<div class="order">
+    <div class="in-order">
+        <ng-container *ngFor="let order of listOrders">
+            <div class="components">
+                <div class="title">{{order.amount}}x {{order.product.title}}</div>
+                <div class="price">{{order.amount * order.product.value | currency: 'BRL'}}</div>
+            </div>    
+            <div class="components" *ngFor="let option of order.options">
+                <div class="title">1x {{option.name}}</div>
+                <div class="price">{{option.value | currency:'BRL'}}</div>
+            </div>
+        </ng-container>
+    </div>
+    <div class="total-price">
+        <p>Total do pedido:</p>
+        <h1>{{totalPriceOrders | currency: 'BRL'}}</h1>
+    </div>
+</div>

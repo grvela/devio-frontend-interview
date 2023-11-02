@@ -15,6 +15,7 @@ import { ProductComponent } from '@components/product/product.component';
 import { CardComponent } from './card/card.component';
 import { CheckboxComponent } from './checkbox/checkbox.component';
 import { InputNumberComponent } from './input-number/input-number.component';
+import { ListOrderComponent } from './list-order/list-order.component';
 import { OptionalComponent } from './optional/optional.component';
 import { OrderComponent } from './order/order.component';
 
@@ -27,7 +28,8 @@ import { OrderComponent } from './order/order.component';
         CardComponent,
         OptionalComponent,
         CheckboxComponent,
-        OrderComponent
+        OrderComponent,
+        ListOrderComponent
     ], 
     imports: [
         CommonModule,
@@ -45,7 +47,8 @@ import { OrderComponent } from './order/order.component';
         CategoryComponent,
         InputNumberComponent,
         DialogComponent,
-        OrderComponent
+        OrderComponent,
+        ListOrderComponent
     ]
 })
 export class ComponentsModule {}

@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { Order } from '@interfaces/order/order.interface';
 
 
@@ -7,16 +7,12 @@ import { Order } from '@interfaces/order/order.interface';
   templateUrl: './order.component.html',
   styleUrls: ['./order.component.scss']
 })
-export class OrderComponent implements OnInit, OnChanges{
+export class OrderComponent implements OnChanges{
   @Input({required: true}) order: Order = {} as Order;
 
   totalProduct = 0;
   totalOptional = 0;
   totalOrder = 0;
-
-  ngOnInit() {
-    this.onOrder();
-  }
 
   ngOnChanges() {
     this.onOrder();
@@ -26,6 +22,7 @@ export class OrderComponent implements OnInit, OnChanges{
     this.totalProduct = this.order.amount * this.order.product.value;
     this.totalOptional = this.order.options.reduce((sum, item) => { return sum + item.value }, 0)
     this.totalOrder = this.totalProduct + this.totalOptional;
+    this.order.totalPrice = this.totalOrder;
   }
 
 
