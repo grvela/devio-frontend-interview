@@ -22,9 +22,14 @@
 .order{
     display: grid;
     grid-template-columns: 1fr; 
+    gap: 10px;
 }
 
 .order-input{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: start;
   bottom: 0;
 }
 
@@ -35,6 +40,8 @@
 .amount-order{
   display: flex;
   flex-direction: column;
+  text-align: center;
+  gap: 25px;
 }
 
 .long-description{
@@ -103,5 +110,14 @@
 @media (min-width: 1024px){
   .order{
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .amount-order{
+    text-align: start;
+  }
+
+  .order-input{
+    bottom: 0;
+    justify-content: flex-start;
   }
 }

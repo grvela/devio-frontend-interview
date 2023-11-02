@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class OptionalService {
-  readonly apiUrl = environment.apiUrl + "/optional"
+  private readonly apiUrl = environment.apiUrl + "/optional"
 
   constructor(private http: HttpClient) { }
 

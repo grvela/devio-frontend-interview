@@ -9,11 +9,14 @@ import { Optional } from '@interfaces/optional/optional';
 export class OptionalComponent {
   @Input({required: true}) option: Optional = {} as Optional;
   @Output() optionRequest = new EventEmitter<{
-    optional: Optional,
-    isChecked: boolean
+    option: Optional,
+    selected: boolean
   }>()
 
-  onToggleChange(isTrue: boolean){
-    this.optionRequest.emit({ optional: this.option, isChecked: isTrue })
+  onToggleChange(isSelected: boolean){
+    this.optionRequest.emit({
+      option: this.option,
+      selected: isSelected
+    })
   }
 }

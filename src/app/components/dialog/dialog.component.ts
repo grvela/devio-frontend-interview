@@ -1,62 +1,92 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Optional } from '@interfaces/optional/optional';
+import { Order } from '@interfaces/order/order.interface';
 import { Product } from '@interfaces/product/product';
 import { OptionalService } from '@services/optional/optional.service';
 import { ProductsService } from '@services/products/products.service';
 import { DynamicDialogConfig } from 'primeng/dynamicdialog';
+import { Observable, Subscription } from 'rxjs';
+
 
 @Component({
   selector: 'app-dialog',
   templateUrl: './dialog.component.html',
   styleUrls: ['./dialog.component.scss']
 })
-export class DialogComponent{
-  backgroundColor = '';
-  notes = '';
-  amount = 1;
+export class DialogComponent implements OnInit, OnDestroy{
+  id = 0;
+  backgroundColor = '#FA6767';
 
-  loadProduct = false;
+  order!: Order;
+
+  product$!: Observable<Product>;
+  optional$!: Observable<Optional[]>
+
   product: Product = {} as Product;
   optional: Optional[] = [];
-  selectedOptional: Optional[] = [];
 
+  private productSubscription!: Subscription;
+  private optionalSubscription!: Subscription;
 
+  constructor(
+    public config: DynamicDialogConfig, 
+    private productService: ProductsService, 
+    private optionalService: OptionalService,
+    ){
+      this.id = this.config.data.id;
+      this.backgroundColor =  this.config.data.color;
 
-  constructor(public config: DynamicDialogConfig, private productService: ProductsService, private optionalService: OptionalService){
-    this.getProductById();
-    this.getAllOptional();
-    this.backgroundColor =  this.config.data.color;
+      this.order = {
+        product: {} as Product,
+        amount: 1,
+        options: [] as Optional[],
+        notes: '',
+        totalPrice: 0
+      }
+    }
+
+  ngOnInit(){
+    this.product$ = this.productService.getById(this.id);
+    this.optional$ = this.optionalService.getAllOptional();
+    
+    this.productSubscription = this.getProductById();
+    this.optionalSubscription = this.getAllOptional();
   }
 
   getProductById(){
-    this.productService.getById(this.config.data.id).subscribe((product: Product) => {
-      this.product = product;
-      this.loadProduct = true;
+    return this.product$.subscribe((product: Product) => {
+      this.order.product = this.product = product;
     });
   }
 
   getAllOptional(){
-    this.optionalService.getAllOptional().subscribe((optional: Optional[]) => {
+    return this.optional$.subscribe((optional: Optional[]) => {
       this.optional = optional;
     });
   }
 
-  onAmountOrderChange(newAmount: number){
-    this.amount = newAmount;
+  onAmountChange(value: number){
+    this.order.amount = value;
   }
 
-  onOptionRequest(event: {optional: Optional, isChecked: boolean}){
-    if(event.isChecked){
-      this.selectedOptional.push(event.optional);
-    }else{
-      const NOT_FOUND = -1;
-      const REMOVE_BEFORE = 1;
+  onOptionRequest(event: {option: Optional, selected: boolean}) {
+    const updatedOptions = this.order.options.slice();
 
-      const index = this.selectedOptional.findIndex(item => item.id === event.optional.id);
-      if (index !== NOT_FOUND){
-        this.selectedOptional.splice(index, REMOVE_BEFORE);
-      }
+    if (event.selected) {
+      updatedOptions.push(event.option);
+    } else {
+      updatedOptions.filter((option) => option.id !== event.option.id);
     }
-    
+
+    this.order = {
+      ...this.order,
+      options: updatedOptions
+    };
+  }
+
+
+  ngOnDestroy(){
+    this.productSubscription.unsubscribe();
+    this.optionalSubscription.unsubscribe();
   }
 }

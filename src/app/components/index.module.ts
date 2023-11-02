@@ -1,12 +1,13 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { CheckboxModule } from 'primeng/checkbox';
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
 import { InputTextareaModule } from 'primeng/inputtextarea';
+import { SkeletonModule } from 'primeng/skeleton';
 
 import { CategoryComponent } from '@components/category/category.component';
 import { DialogComponent } from '@components/dialog/dialog.component';
@@ -31,11 +32,13 @@ import { OrderComponent } from './order/order.component';
     imports: [
         CommonModule,
         FormsModule,
+        ReactiveFormsModule,
         CardModule,
         DynamicDialogModule,
         CheckboxModule,
         InputTextareaModule,
-        ButtonModule
+        ButtonModule,
+        SkeletonModule
     ],
     exports: [
         ProductComponent,

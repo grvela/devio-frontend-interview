@@ -3,48 +3,70 @@
         Revise seu pedido!
     </div>
 
-    <div class="order"> 
-        <div class="image-product">
-           <app-card [product]="product" [backgroundColor]="backgroundColor"></app-card>
-        </div>
-        
-        <div class="amount-order">
-            <h2 class="product-title">{{product.title}}</h2>
-            <p class="long-description">{{product.long_description}}</p>
-            <div class="order-input">
-               <app-input-number (valueChange)="onAmountOrderChange($event)"></app-input-number>
+    <div class="order">
+        <ng-container *ngIf="product$ | async as product; else loadingCard">
+            <div class="image-product">
+                <app-card [product]="product" [backgroundColor]="backgroundColor"></app-card>
             </div>
-        </div>
-
-        <div class="price">
-            <h2>{{product.value | currency: 'BRL'}}</h2>
-        </div>
+            <div class="amount-order">
+                <h2 class="product-title">{{product.title}}</h2>
+                <p class="long-description">{{product.long_description}}</p>
+                <div class="order-input">
+                    <app-input-number (valueChange)="onAmountChange($event)"></app-input-number>
+                </div>
+            </div>
+            <div class="price">
+                <h2>{{product.value | currency: 'BRL'}}</h2>
+            </div>
+        </ng-container> 
+        <ng-template #loadingCard>
+            <p-skeleton width="5rem"></p-skeleton>
+        </ng-template>
     </div>
 
     <div class="optional">
         <h2> Adicionais</h2>
         <p>Selecione os ingredientes que mais combinam com seu lanche</p>
         <div class="list-options">
-            <ng-container class="options" *ngFor="let option of optional">
-                <app-optional [option]="option" (optionRequest)="onOptionRequest($event)"></app-optional>
+            <ng-container *ngIf="optional$ | async as optional; else loadingOptions">
+                <app-optional 
+                    *ngFor="let option of optional" 
+                    [option]="option" 
+                    (optionRequest)="onOptionRequest($event)" 
+                    class="options">
+                </app-optional>
             </ng-container>
+            <ng-template #loadingOptions>
+                <p-skeleton width="5rem"></p-skeleton>
+            </ng-template>
         </div>
     </div>
 
     <div class="notes">
         <h2>Observações</h2>
         <div class="text">
-            <textarea [(ngModel)]="notes" [autoResize]="true" rows="4" id="message" name="message" placeholder="Adicione uma observação ao seu pedido" pInputTextarea></textarea>
+            <textarea 
+                [(ngModel)]="order.notes"  
+                [autoResize]="true" 
+                rows="4" 
+                id="message" 
+                name="message" 
+                placeholder="Adicione uma observação ao seu pedido" 
+                pInputTextarea>
+            </textarea>
         </div>
-       
-    </div>  
+        </div>  
 
-    <div class="total-price" *ngIf="loadProduct">
-        <app-order 
-            [product]="product" 
-            [amount]="amount"
-            [optional]="selectedOptional"
-            ></app-order>
+    <div class="total-price">
+        <ng-container *ngIf="product$ | async as product; else loadingPrice">
+            <app-order 
+                [order]="order"
+            >
+            </app-order>
+        </ng-container>
+        <ng-template #loadingPrice>
+            <p-skeleton width="4rem"></p-skeleton>
+        </ng-template>
     </div>
 
     <div class="footer-buttons">
