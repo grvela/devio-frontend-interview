@@ -2,12 +2,12 @@
     <div class="in-order">
         <ng-container *ngFor="let order of listOrders">
             <div class="components">
-                <div class="title">{{order.amount}}x {{order.product.title}}</div>
-                <div class="price">{{order.amount * order.product.value | currency: 'BRL'}}</div>
+                <p class="amount">{{order.amount}}x {{order.product.title}}</p>
+                <p>{{order.amount * order.product.value | currency: 'BRL'}}</p>
             </div>    
-            <div class="components" *ngFor="let option of order.options">
-                <div class="title">1x {{option.name}}</div>
-                <div class="price">{{option.value | currency:'BRL'}}</div>
+            <div class="components options" *ngFor="let option of order.options">
+                <p class="amount">1x {{option.name}}</p>
+                <p>{{option.value | currency:'BRL'}}</p>
             </div>
         </ng-container>
     </div>

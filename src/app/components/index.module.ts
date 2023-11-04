@@ -18,6 +18,8 @@ import { InputNumberComponent } from './input-number/input-number.component';
 import { ListOrderComponent } from './list-order/list-order.component';
 import { OptionalComponent } from './optional/optional.component';
 import { OrderComponent } from './order/order.component';
+import { OutlinedButtonComponent } from './outlined-button/outlined-button.component';
+import { RaisedButtonComponent } from './raised-button/raised-button.component';
 
 @NgModule({
     declarations:[
@@ -29,7 +31,9 @@ import { OrderComponent } from './order/order.component';
         OptionalComponent,
         CheckboxComponent,
         OrderComponent,
-        ListOrderComponent
+        ListOrderComponent,
+        OutlinedButtonComponent,
+        RaisedButtonComponent
     ], 
     imports: [
         CommonModule,
@@ -49,7 +53,9 @@ import { OrderComponent } from './order/order.component';
         DialogComponent,
         OrderComponent,
         ListOrderComponent,
-        CheckboxComponent
+        CheckboxComponent,
+        OutlinedButtonComponent,
+        RaisedButtonComponent
     ]
 })
 export class ComponentsModule {}

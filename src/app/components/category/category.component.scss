@@ -1,17 +1,10 @@
 :host ::ng-deep{
     .p-card{
-        height: 100%;
         text-align: center;
+        height: 100%;
     }
 
     .p-card-content{
-        padding: 20px;
-    }
-
-    .name{
-        font-family: 'Nunito Sans', sans-serif;
-        font-weight: 800;
-
-        margin-top: 6px;
+        padding: 2rem 0 2rem 0;
     }
 }

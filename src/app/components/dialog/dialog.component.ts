@@ -71,11 +71,12 @@ export class DialogComponent implements OnInit, OnDestroy{
 
   onOptionRequest(event: {option: Optional, selected: boolean}) {
     const updatedOptions = this.order.options.slice();
-
     if (event.selected) {
       updatedOptions.push(event.option);
     } else {
-      updatedOptions.filter((option) => option.id !== event.option.id);
+      const filteredOptions = updatedOptions.filter((option) => option.id !== event.option.id);
+      updatedOptions.length = 0;
+      updatedOptions.push(...filteredOptions);
     }
 
     this.order = {

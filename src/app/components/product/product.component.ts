@@ -36,8 +36,6 @@ export class ProductComponent implements OnDestroy{
         id: this.product.id,
         color: this.getBackgroundColor(),
       },
-      width: '60%',
-      contentStyle: { overflow: 'auto' },
       baseZIndex: 10000,
     });
 
