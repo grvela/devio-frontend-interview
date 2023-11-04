@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="grid">
+          <div class="review">
+        <h1>Pagamento</h1>
+        <h2>Resumo da compra</h2>
+        <app-list-order [listOrders]="order">
+        </app-list-order>
+        <div class="name">
+            <label htmlFor="username">Primeiro nome</label>
+            <input pInputText id="username" />
+        </div>
+    </div>
+    <div class="payment-options">
+        <h2>Selecione a forma de pagamento</h2>
+        <div class="payment-option">
+            Debito
+            <app-checkbox></app-checkbox>
+        </div>
+         <div class="payment-option">
+            Crédito
+            <app-checkbox></app-checkbox>
+        </div>
+         <div class="payment-option">
+            Dinheiro
+            <app-checkbox></app-checkbox>
+        </div>
+        <div class="money-return">
+            <div class="money-input">
+                <label htmlFor="input">Valor entregue</label>
+                <input pInputText id="input" />
+            </div>
+            <div class="money-output">
+                <label htmlFor="output">Troco</label>
+                <input pInputText disabled="true" id="output" [(ngModel)]="output"/>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="footer-buttons">
+        teste
+    </div>
+</div>

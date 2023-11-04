@@ -48,7 +48,8 @@ import { OrderComponent } from './order/order.component';
         InputNumberComponent,
         DialogComponent,
         OrderComponent,
-        ListOrderComponent
+        ListOrderComponent,
+        CheckboxComponent
     ]
 })
 export class ComponentsModule {}

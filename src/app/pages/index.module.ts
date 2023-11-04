@@ -9,10 +9,12 @@ import { ComponentsModule } from "@components/index.module";
 import { HomeComponent } from "@pages/home/home.component";
 
 import { InputTextModule } from 'primeng/inputtext';
+import { PaymentComponent } from './payment/payment.component';
 
 @NgModule({
     declarations:[
-        HomeComponent
+        HomeComponent,
+        PaymentComponent
     ], 
     imports: [
         CommonModule,
@@ -25,6 +27,7 @@ import { InputTextModule } from 'primeng/inputtext';
     ],
     exports: [
         HomeComponent, 
+        PaymentComponent
     ]
 })
 export class PagesModule {}

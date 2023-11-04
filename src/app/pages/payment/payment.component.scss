@@ -1,0 +1,31 @@
+.container{
+    margin-left: 17%;
+    margin-right: 17%;
+    border: 1px solid red;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: 1fr; 
+}
+
+.name{
+    display: flex;
+    flex-direction: column;
+}
+
+.payment-options{
+    display: flex;
+    flex-direction: column;
+}
+
+.payment-option{
+    display: flex;
+    flex-direction: row;
+}
+
+@media (min-width: 768px){
+  .grid{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
