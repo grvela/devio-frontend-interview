@@ -1,0 +1,12 @@
+:host ::ng-deep{
+    .p-button{
+        width: 100%;
+        padding: 0.8rem;
+        border-radius: 10px;
+        background-color: #125C13;
+    }
+    .p-button-label{
+        color: white;
+        font-family: 'Montserrat', sans-serif;
+    }
+}
