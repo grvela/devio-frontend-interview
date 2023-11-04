@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
 import { Order } from '@interfaces/order/order.interface';
 import { OrderService } from '@services/order/order.service';
 
@@ -7,32 +7,32 @@ import { OrderService } from '@services/order/order.service';
   templateUrl: './payment.component.html',
   styleUrls: ['./payment.component.scss']
 })
-export class PaymentComponent implements OnInit{
+export class PaymentComponent implements OnInit, OnChanges{
   order: Order[] = [];
+  clientName = '';
+  clientPayment = 0;
+  debit= true;
   output = 12;
 
-  constructor(private orderService:OrderService){
-    this.orderService.set({
-      notes: '',
-      amount: 1,
-      options: [],
-      totalPrice: 30.50,
-      product:   {
-        id: 1,
-        code: 11,
-        tag: "hambuguer",
-            title: "x-bacon",
-            short_description: "3x bacon",
-            long_description: "3x bacon, 2x cheddar, 1x picanha 200g, 4x tomate",
-            value: 30.50,
-            image: "https://i.pinimg.com/originals/f2/2d/88/f22d887acea42608c997adacee06a00b.png"
-        }
-    })
-
-
-  }
+  constructor(private orderService:OrderService){}
 
   ngOnInit(){
     this.order = this.orderService.get();
+  }
+
+  ngOnChanges(){
+    console.log(this.clientPayment);
+  }
+
+  onDebit(){
+    console.log("debito");
+  }
+
+  onCredit(){
+    console.log("credito");
+  }
+
+  onMoney(){
+    console.log("dinheiro");
   }
 }

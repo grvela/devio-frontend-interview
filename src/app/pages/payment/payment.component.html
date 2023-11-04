@@ -1,42 +1,72 @@
-<div class="container">
-    <div class="grid">
-          <div class="review">
-        <h1>Pagamento</h1>
-        <h2>Resumo da compra</h2>
-        <app-list-order [listOrders]="order">
-        </app-list-order>
-        <div class="name">
-            <label htmlFor="username">Primeiro nome</label>
-            <input pInputText id="username" />
+    <h1>Pagamento</h1>
+
+    <div class="payment-container">
+        <div class="order-review">
+            <h2>Resumo da compra</h2>
+
+            <app-list-order 
+                [listOrders]="order">
+            </app-list-order>
+
+            <div class="client-infos">
+                <p><b>Nome do cliente</b></p>
+                <input 
+                pInputText 
+                placeholder="Primeiro nome" 
+                [(ngModel)]="clientName"/>
+            </div>
         </div>
-    </div>
+
     <div class="payment-options">
-        <h2>Selecione a forma de pagamento</h2>
-        <div class="payment-option">
-            Debito
-            <app-checkbox></app-checkbox>
+        <p class="subtitle"><b>Selecione a forma de pagamento</b></p>
+        <div class="payment-option" [ngClass]="{'payment-active': debit}">
+            <p class="title"><b>Débito</b></p> 
+            <app-checkbox 
+                (checkedChange)="onDebit()">
+            </app-checkbox>
         </div>
          <div class="payment-option">
-            Crédito
-            <app-checkbox></app-checkbox>
+            <p class="title"><b>Crédito</b></p> 
+            <app-checkbox 
+                (checkedChange)="onCredit()">
+            </app-checkbox>
         </div>
          <div class="payment-option">
-            Dinheiro
-            <app-checkbox></app-checkbox>
+            <p class="title"><b>Dinheiro</b></p> 
+            <app-checkbox 
+                (checkedChange)="onMoney()">
+            </app-checkbox>
         </div>
+
         <div class="money-return">
             <div class="money-input">
-                <label htmlFor="input">Valor entregue</label>
-                <input pInputText id="input" />
+                <p><b>Valor entregue</b></p>
+                <input 
+                placeholder="R$"
+                pInputText
+                [(ngModel)]="clientPayment"
+                />
             </div>
             <div class="money-output">
-                <label htmlFor="output">Troco</label>
-                <input pInputText disabled="true" id="output" [(ngModel)]="output"/>
+                <p><b>Troco</b></p>
+                <input 
+                pInputText 
+                disabled="true" 
+                id="output" 
+                [(ngModel)]="output"/>
             </div>
         </div>
     </div>
     </div>
-    <div class="footer-buttons">
-        teste
+   <div class="footer-buttons">
+        <p-button 
+            [outlined]="true" 
+            >
+            <p>Cancelar</p>
+        </p-button>
+        <p-button 
+            class="raised" 
+            [raised]="true">
+            <p>Finalizar pedido</p>
+        </p-button>
     </div>
-</div>

@@ -1,31 +1,101 @@
-.container{
-    margin-left: 17%;
-    margin-right: 17%;
-    border: 1px solid red;
+:host ::ng-deep{
+    .p-inputtext{
+        padding: 5px;
+        background-color: #f4f4f4;
+    }
 }
 
-.grid{
+
+.payment-container{
     display: grid;
     grid-template-columns: 1fr; 
+    margin-top: 20px;
+    gap: 5rem
+  }
+
+.order-review{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-.name{
+.client-infos{
     display: flex;
     flex-direction: column;
+}
+
+.subtitle{
+    margin-bottom: 5px;
 }
 
 .payment-options{
     display: flex;
     flex-direction: column;
+
 }
 
 .payment-option{
     display: flex;
     flex-direction: row;
+    margin-bottom: 10px;
+    padding: 1rem;
+    border-radius: 2px;
+    border: 1px solid #BCBCBC
 }
 
-@media (min-width: 768px){
-  .grid{
+.payment-active{
+  border: 1px solid #125C13;
+}
+
+.title{
+    flex-grow: 1;
+}
+
+.money-return{
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    margin-top: 5px;
+}
+
+.money-input{
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-buttons{
+  margin-top: 38px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 40px;
+}
+
+:host ::ng-deep{
+   .p-button{
+    font-size: 14px;
+    padding: 10px 26px 10px 26px;
+    border-radius: 12px;
+    border: 1px solid #125C13;
+  }
+
+  .p-button > p{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    color: #125C13;
+  }
+
+  .p-button-raised{
+    background-color: #125c13;
+  }
+
+  .p-button-raised > p{
+    color: white;
+  }
+}
+
+@media (min-width: 1024px){
+  .payment-container{
     grid-template-columns: repeat(2, 1fr);
   }
 }
